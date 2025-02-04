@@ -9,8 +9,11 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        $adminUser = new User();
+        $adminUser->setEmail('admin@admin.com');
+        $adminUser->setRoles(['ROLE_ADMIN']);
+        $adminUser->setPassword('admin');
+        $manager->persist($adminUser);
 
         $manager->flush();
     }
