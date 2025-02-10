@@ -1,19 +1,60 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+        .flag { display: flex; align-items: center; margin-bottom: 10px; cursor: pointer; }
+        .flag img { margin-right: 10px; }
+    </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ username }}! ✅</h1>
-    <h1>QCM List</h1>
-    <ul>
-        {% for qcm in qcms %}
-            <li>
-                <a href="{{ path('app_qcm_show', {id: qcm.id}) }}">{{ qcm.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="example-wrapper">
+        <h1>Hello {{ username }}! ✅</h1>
+        <h1>Country Flags</h1>
+        <ul>
+            {% for flag in flags %}
+                <li class="flag" data-country-name="{{ flag.countryName }}">
+                    <img src="{{ flag.flagURL }}" alt="{{ flag.countryName }} flag" width="50">
+                    <span>{{ flag.countryName }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <h2 id="selected-flag-text">You are in english</h2>
+        <h1>QCM List</h1>
+        <ul>
+            {% for qcm in qcms %}
+                <li>
+                    <a href="{{ path('app_qcm_show', {id: qcm.id}) }}">{{ qcm.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flags = document.querySelectorAll('.flag');
+            const selectedFlagText = document.getElementById('selected-flag-text');
+
+            const translations = {
+                'de': 'Du bist in deutsch',
+                'fr': 'Tu es en français',
+                'en': 'You are in english'
+            };
+
+            flags.forEach(flag => {
+                flag.addEventListener('click', function() {
+                    const countryName = this.getAttribute('data-country-name');
+                    let text = translations['en']; // Default to English
+
+                    if (countryName === 'de') {
+                        text = translations['de'];
+                    } else if (countryName === 'fr') {
+                        text = translations['fr'];
+                    }
+
+                    selectedFlagText.textContent = text;
+                });
+            });
+        });
+    </script>
 {% endblock %}
