@@ -12,7 +12,7 @@
     <ul>
         {% for qcm in qcms %}
             <li>
-                <a href="{{ path('app_qcm_show', {id: qcm.id}) }}">{{ qcm.name }}</a>
+                <a href="{{ path('app_qcm_details', {id: qcm.id}) }}">{{ qcm.name }}</a>
             </li>
         {% endfor %}
     </ul>
