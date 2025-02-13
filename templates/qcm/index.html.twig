@@ -1,21 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        .flag { display: flex; align-items: center; margin-bottom: 10px; cursor: pointer; }
-        .flag img { margin-right: 10px; }
-    </style>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/qcm.css') }}">
+{% endblock %}
 
+{% block body %}
     <div class="example-wrapper">
         <h1>Hello {{ username }}! ✅</h1>
         <h1>Country Flags</h1>
-        <ul>
+        <ul class="flag-list">
             {% for flag in flags %}
                 <li class="flag" data-country-name="{{ flag.countryName }}">
                     <img src="{{ flag.flagURL }}" alt="{{ flag.countryName }} flag" width="50">
-                    <span>{{ flag.countryName }}</span>
+                    <span class="flag-span">{{ flag.countryName }}</span>
                 </li>
             {% endfor %}
         </ul>
@@ -23,8 +20,8 @@
         <h1>QCM List</h1>
         <ul>
             {% for qcm in qcms %}
-                <li>
-                    <a href="{{ path('app_qcm_show', {id: qcm.id}) }}">{{ qcm.name }}</a>
+                <li class="qcm-list">
+                    <a href="{{ path('app_qcm_details', {id: qcm.id}) }}">{{ qcm.name }}</a>
                 </li>
             {% endfor %}
         </ul>

@@ -1,0 +1,93 @@
+/* Styles globaux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    height: 100vh;
+    margin: 0;
+}
+
+.example-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flag {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.flag:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.flag-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.flag-span {
+    margin-left: 10px;
+}
+
+.qcm-container {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Style de la liste des QCM */
+.qcm-list {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+button {
+    background-color: #6c63ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.qcm-list li {
+    margin: 10px 0;
+}
+
+.qcm-list a {
+    text-decoration: none;
+    color: #6c63ff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.qcm-list a:hover {
+    color: #574bde;
+}
