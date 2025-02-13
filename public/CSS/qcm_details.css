@@ -1,0 +1,50 @@
+/* Styles globaux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.qcm-details {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.qcm-details h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.qcm-details p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    color: #666;
+}
+
+.qcm-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.qcm-details li {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+}

@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/qcm_details.css') }}">
+{% endblock %}
+
 {% block body %}
-    <h1>{{ qcm.name }}</h1>
-    <p>Theme: {{ qcm.theme }}</p>
-    <ul>
-        {% for question in qcm.questions %}
-            <li>{{ question.getQustionstr() }}</li>
-        {% endfor %}
-    </ul>
+    <div class="qcm-details">
+        <h1>{{ qcm.name }}</h1>
+        <p>Theme: {{ qcm.theme }}</p>
+        <ul>
+            {% for question in qcm.questions %}
+                <li>{{ question.qustionstr }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
